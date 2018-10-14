@@ -3,36 +3,47 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private final String firstName;
-    private final String lastName;
-    private final String nickname;
-    private final String address;
-    private final String homeTelephone;
-    private final String email;
-    private int id;
-
-    public ContactData(int id, String firstName, String lastName, String nickname, String address, String homeTelephone, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.nickname = nickname;
-        this.address = address;
-        this.homeTelephone = homeTelephone;
-        this.email = email;
+    private  String firstName;
+    private  String lastName;
+    private  String nickname;
+    private  String address;
+    private  String homeTelephone;
+    private  String email;
+    private int id = Integer.MAX_VALUE;
+    
+    public ContactData withId(int id) {
         this.id = id;
+        return this;
     }
 
-    public ContactData(String firstName, String lastName, String nickname, String address, String homeTelephone, String email) {
+    public ContactData withFirstName(String firstName) {
         this.firstName = firstName;
-        this.lastName = lastName;
-        this.nickname = nickname;
-        this.address = address;
-        this.homeTelephone = homeTelephone;
-        this.email = email;
-        this.id = Integer.MAX_VALUE;
+        return this;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withNickname(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ContactData withHomeTelephone(String homeTelephone) {
+        this.homeTelephone = homeTelephone;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
     }
 
     public String getFirstName() {
