@@ -14,3 +14,13 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 \.idea/workspace\.xml
+
+addressbook/log-20181023T180902\.txt
+
+addressbook/log-20181023T180930\.txt
+
+addressbook/log-20181023T181151\.txt
+
+addressbook/log-20181023T181227\.txt
+
+*.log
