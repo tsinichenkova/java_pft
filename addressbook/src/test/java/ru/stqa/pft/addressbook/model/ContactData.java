@@ -211,7 +211,7 @@ public class ContactData {
         return "ContactData{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", id='" + id + '\'' +
+                ", id=" + id +
                 '}';
     }
 
@@ -222,12 +222,16 @@ public class ContactData {
         ContactData that = (ContactData) o;
         return id == that.id &&
                 Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName);
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(nickname, that.nickname) &&
+                Objects.equals(address, that.address) &&
+                Objects.equals(homeTelephone, that.homeTelephone) &&
+                Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(firstName, lastName, id);
+        return Objects.hash(firstName, lastName, nickname, address, homeTelephone, email, id);
     }
 }

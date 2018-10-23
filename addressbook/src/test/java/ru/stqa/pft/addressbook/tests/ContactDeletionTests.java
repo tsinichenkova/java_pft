@@ -16,23 +16,23 @@ public class ContactDeletionTests extends TestBase {
 
     @BeforeMethod
     public void ensurePrediction() {
-        app.goTo().HomePage();
-        if (app.contact().all().size() == 0) {
+        if (app.db().contacts().size() == 0) {
+            app.goTo().HomePage();
             app.contact().create(new ContactData().withFirstName("Mike2").withLastName("Smith2"));
         }
     }
 
     @Test
     public void testContactDeletion() {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData deletedContact = before.iterator().next();
+        app.goTo().HomePage();
         app.contact().delete(deletedContact);
         app.confirmAlert();
         app.goTo().HomePage();
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after.size(), equalTo(before.size() - 1));
 
-        assertThat(after, equalTo(
-                before.whithout(deletedContact)));
+        assertThat(after, equalTo(before.whithout(deletedContact)));
     }
 }

@@ -14,8 +14,8 @@ public class ContactPhoneTests extends TestBase {
 
     @BeforeMethod
     public void ensurePrediction() {
-        app.goTo().HomePage();
-        if (app.contact().all().size() == 0) {
+        if (app.db().contacts().size() == 0) {
+            app.goTo().HomePage();
             app.contact().create(new ContactData().withFirstName("Mike2").withLastName("Smith2")
                     .withHomeTelephone("123").withMobileTelephone("156").withWorkTelephone("5643"));
         }
@@ -24,17 +24,17 @@ public class ContactPhoneTests extends TestBase {
     @Test
     public void testContactPhone() {
         app.goTo().HomePage();
-        ContactData contact = app.contact().all().iterator().next();
+        ContactData contact = app.db().contacts().iterator().next();
         ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
-        assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
+        assertThat(mergePhones(contact), equalTo(mergePhones(contactInfoFromEditForm)));
     }
 
     public String mergePhones(ContactData contact) {
-       return Arrays.asList(contact.getHomeTelephone(), contact.getMobileTelephone(), contact.getWorkTelephone())
-                .stream().filter((s) -> ! s.equals(""))
-               .map(ContactPhoneTests::cleaned)
-               .collect(Collectors.joining("\n"));
+        return Arrays.asList(contact.getHomeTelephone(), contact.getMobileTelephone(), contact.getWorkTelephone())
+                .stream().filter((s) -> !s.equals(""))
+                .map(ContactPhoneTests::cleaned)
+                .collect(Collectors.joining("\n"));
     }
 
     public static String cleaned(String phone) {

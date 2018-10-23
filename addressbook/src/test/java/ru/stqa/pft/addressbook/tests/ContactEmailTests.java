@@ -14,8 +14,8 @@ public class ContactEmailTests  extends TestBase  {
 
     @BeforeMethod
     public void ensurePrediction() {
-        app.goTo().HomePage();
-        if (app.contact().all().size() == 0) {
+        if (app.db().contacts().size() == 0) {
+            app.goTo().HomePage();
             app.contact().create(new ContactData().withFirstName("Mike2").withLastName("Smith2")
                     .withEmail("test@mail.ru").withEmail2("test2@mail.ru").withEmail3("test3@mail.ru"));
         }
@@ -24,10 +24,10 @@ public class ContactEmailTests  extends TestBase  {
     @Test
     public void testContactEmail() {
         app.goTo().HomePage();
-        ContactData contact = app.contact().all().iterator().next();
+        ContactData contact = app.db().contacts().iterator().next();
         ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
-        assertThat(contact.getallEmails(), equalTo(mergeEmails(contactInfoFromEditForm)));
+        assertThat(mergeEmails(contact), equalTo(mergeEmails(contactInfoFromEditForm)));
     }
 
     public String mergeEmails(ContactData contact) {
