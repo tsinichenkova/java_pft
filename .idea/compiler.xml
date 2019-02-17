@@ -6,6 +6,8 @@
       <module name="addressbook_test" target="1.8" />
       <module name="sandbox_main" target="1.8" />
       <module name="sandbox_test" target="1.8" />
+      <module name="selenium-java_main" target="1.8" />
+      <module name="selenium-java_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
