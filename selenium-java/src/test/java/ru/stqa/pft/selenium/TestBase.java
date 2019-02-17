@@ -19,10 +19,15 @@ public class TestBase {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
-
+    public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
     @Before
     public void start() {
+        if (tlDriver.get() != null) {
+            driver = tlDriver.get();
+            wait = new WebDriverWait(driver, 10);
+            return;
+        }
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("start-fullscreen");
 //        DesiredCapabilities caps = new DesiredCapabilities();
@@ -33,11 +38,15 @@ public class TestBase {
         options.setBinary(new FirefoxBinary(new File("C:\\Program Files\\Mozilla Firefox\\firefox.exe")));
         driver = new FirefoxDriver(options);
         wait = new WebDriverWait(driver, 10);
+        tlDriver.set(driver);
+
+        Runtime.getRuntime().addShutdownHook(
+                new Thread(() -> { driver.quit(); driver = null; }));
     }
 
     @After
     public void stop() {
-        driver.quit();
-        driver = null;
+        //driver.quit();
+        //driver = null;
     }
 }
