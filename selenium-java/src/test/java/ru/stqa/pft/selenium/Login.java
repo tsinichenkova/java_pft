@@ -2,9 +2,6 @@ package ru.stqa.pft.selenium;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class Login extends TestBase {
 
