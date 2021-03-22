@@ -1,0 +1,9 @@
+{
+    "Поиск": {
+        "ПолеПоиска": "//kpi-admission-plan-header//lu-form-field//input",
+        "КнопкаНайти": "//kpi-admission-plan//button/div/span[text()='Найти']"
+    },
+    "МодальноеОкноВыбораМедРаботника": {
+        "кнопкаОтменить": "//app-medical-employee-select//sc-button/span[text()='Отменить']"
+    }
+}

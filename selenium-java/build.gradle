@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'ru.stqa.pft'
+group 'pme'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -14,4 +14,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    implementation 'org.testng:testng:6.9.6'
+    implementation group: 'net.lightbody.bmp', name: 'browsermob-core', version: '2.1.5'
+    implementation group: 'io.rest-assured', name: 'json-path', version: '3.3.0'
 }

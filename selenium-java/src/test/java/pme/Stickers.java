@@ -1,6 +1,5 @@
-package ru.stqa.pft.selenium;
+package pme;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +9,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class Stickers extends TestBase {
+public class Stickers extends TestBase2 {
 
     @Test
     public void stickers() {

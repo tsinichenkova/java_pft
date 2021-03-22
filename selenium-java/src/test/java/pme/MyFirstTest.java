@@ -1,4 +1,4 @@
-package ru.stqa.pft.selenium;
+package pme;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -6,7 +6,7 @@ import org.openqa.selenium.Keys;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-public class MyFirstTest extends TestBase {
+public class MyFirstTest extends TestBase2 {
 
     @Test
     public void myFirstTest() {
