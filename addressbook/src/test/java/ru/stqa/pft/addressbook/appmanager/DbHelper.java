@@ -15,7 +15,7 @@ public class DbHelper {
     private SessionFactory sessionFactory;
 
     public DbHelper() {
-//        sessionFactory = new Configuration().configure().buildSessionFactory();
+        sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
     public Groups groups() {

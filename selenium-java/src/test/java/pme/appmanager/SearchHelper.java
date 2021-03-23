@@ -15,7 +15,8 @@ public class SearchHelper extends HelperBase {
     public void searchPatient(String value) throws Exception {
         sendKeys("Поиск.ПолеПоиска", value);
         click("Поиск.КнопкаНайти");
-        sleep(10);
+        moveMouse("Поиск.Пациент");
+        click("Поиск.КнопкаОткрытьКарту");
     }
 
 }

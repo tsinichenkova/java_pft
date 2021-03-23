@@ -22,8 +22,9 @@ public class ApplicationManager {
     WebDriver driver;
 
     private String browser;
-    //    private DbHelper dbHelper;
+    private DbHelper dbHelper;
     public SearchHelper searchHelper;
+    public CareEventHelper careEventHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -34,7 +35,7 @@ public class ApplicationManager {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
-//        dbHelper = new DbHelper();
+        dbHelper = new DbHelper();
 
         switch (browser) {
             case BrowserType.FIREFOX:
@@ -59,6 +60,7 @@ public class ApplicationManager {
         driver.manage().window().maximize();
         driver.get(properties.getProperty("web.baseUrl"));
         searchHelper = new SearchHelper(driver);
+        careEventHelper = new CareEventHelper(driver);
     }
 
     public void stop() {
@@ -73,8 +75,12 @@ public class ApplicationManager {
         return searchHelper;
     }
 
-    //    public DbHelper db() {
-//        return dbHelper;
-//    }
+    public DbHelper db() {
+        return dbHelper;
+    }
+
+    public CareEventHelper careEvent() {
+        return careEventHelper;
+    }
 }
 

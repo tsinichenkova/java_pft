@@ -3,6 +3,7 @@ package pme.appmanager;
 import io.restassured.path.json.JsonPath;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -29,6 +30,11 @@ public class HelperBase {
 
     public void click(String path) {
         wd.findElement(By.xpath(getXpath(path))).click();
+    }
+
+    public void moveMouse(String path) {
+        Actions actions = new Actions(wd);
+        actions.moveToElement(wd.findElement(By.xpath(getXpath(path)))).build().perform();
     }
 
     public void sendKeys(String path, String value) {

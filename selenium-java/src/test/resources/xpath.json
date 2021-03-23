@@ -1,9 +1,16 @@
 {
     "Поиск": {
         "ПолеПоиска": "//kpi-admission-plan-header//lu-form-field//input",
-        "КнопкаНайти": "//kpi-admission-plan//button/div/span[text()='Найти']"
+        "КнопкаНайти": "//kpi-admission-plan//button/div/span[text()='Найти']",
+        "КнопкаОткрытьКарту": "//kpi-admission-plan//kpi-admission-plan-item//lu-svg-icon[@icon='health-card']",
+        "Пациент": "//kpi-admission-plan-categories//kpi-admission-plan-item//h3"
     },
     "МодальноеОкноВыбораМедРаботника": {
         "кнопкаОтменить": "//app-medical-employee-select//sc-button/span[text()='Отменить']"
+    },
+    "РаботаСПриемом": {
+        "НачатьПрием": "//kpi-patient-information//kpi-emc-controls-start//sc-button/span[text()=' Начать прием ']",
+        "ЦельПриема": "//kpi-enquiry-purpose-modal//lu-radio[1]",
+        "Сохранить": "//kpi-enquiry-purpose-modal//button//span[text()=' Сохранить ']"
     }
 }
