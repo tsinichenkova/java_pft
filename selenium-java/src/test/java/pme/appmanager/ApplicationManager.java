@@ -25,6 +25,7 @@ public class ApplicationManager {
     private DbHelper dbHelper;
     public SearchHelper searchHelper;
     public CareEventHelper careEventHelper;
+    public DispanserizationHelper dispanserizationHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -61,6 +62,7 @@ public class ApplicationManager {
         driver.get(properties.getProperty("web.baseUrl"));
         searchHelper = new SearchHelper(driver);
         careEventHelper = new CareEventHelper(driver);
+        dispanserizationHelper = new DispanserizationHelper(driver);
     }
 
     public void stop() {
@@ -81,6 +83,10 @@ public class ApplicationManager {
 
     public CareEventHelper careEvent() {
         return careEventHelper;
+    }
+
+    public DispanserizationHelper dispanserization() {
+        return dispanserizationHelper;
     }
 }
 

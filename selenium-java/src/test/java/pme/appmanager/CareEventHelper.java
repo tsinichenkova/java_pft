@@ -14,11 +14,41 @@ public class CareEventHelper extends HelperBase {
         click("РаботаСПриемом.Сохранить");
     }
 
-    public void stopCareEvent() throws Exception {
+    public void cancelCareEvent() throws Exception {
         click("РаботаСПриемом.ОтменитьПрием");
         click("РаботаСПриемом.ПримичнаОтмены");
         click("РаботаСПриемом.Отмена");
         sleep(2);
     }
+
+    public void gotoPrintScreen() {
+        click("РаботаСПриемом.Завершить");
+        click("РаботаСПриемом.ЧекбоксНеТребуются");
+        click("РаботаСПриемом.СохранитьИПродолжить");
+        click("РаботаСПриемом.ЗакрытьСообщение");
+        click("РаботаСПриемом.ПодписатьИПродолжить");
+    }
+
+    public void stopCareEvent() throws Exception {
+        click("РаботаСПриемом.Завершить");
+        click("РаботаСПриемом.ЧекбоксНеТребуются");
+        click("РаботаСПриемом.СохранитьИПродолжить");
+        click("РаботаСПриемом.ЗакрытьСообщение");
+        click("РаботаСПриемом.ПодписатьИПродолжить");
+        sleep(5);
+        click("РаботаСПриемом.ЗавершитьПрием");
+        sleep(2);
+    }
+
+    public void recordPatient() throws Exception {
+        click("ЗаписьПациента.кнопкаЗаписатьПациента");
+        click("ЗаписьПациента.свободныйCлот");
+        click("ЗаписьПациента.кнопкаЗаписать");
+        click("ЗаписьПациента.кнопкаВернуться");
+        click("РаботаСПриемом.ЗавершитьПрием");
+        sleep(2);
+    }
+
+
 
 }

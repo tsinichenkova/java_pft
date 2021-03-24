@@ -14,6 +14,22 @@
         "Сохранить": "//kpi-enquiry-purpose-modal//button//span[text()=' Сохранить ']",
         "ОтменитьПрием": "//kpi-patient-information//kpi-emc-controls-finish//span[text()='Отменить']",
         "ПримичнаОтмены": "//care-event-cancellation//sc-radio[2]//span[contains(@class,'label__inner')]",
-        "Отмена": "//care-event-cancellation//sc-button//span[text()='Отменить приём']"
+        "Отмена": "//care-event-cancellation//sc-button//span[text()='Отменить приём']",
+        "Завершить": "//kpi-patient-information//kpi-emc-controls-finish//span[text()=' Завершить ']",
+        "ЧекбоксНеТребуются": "//kpi-talon-ambulatory-patient//lu-checkbox//span[text()=' Не требуются ']",
+        "СохранитьИПродолжить": "//care-event-completion//sc-button/span[text()=' Сохранить и продолжить ']",
+        "ЗакрытьСообщение": "//lu-message-container//div[contains(@class,'lu-message-close')]",
+        "ПодписатьИПродолжить": "//care-event-completion//sc-button/span[text()=' Подписать и продолжить ']",
+        "ЗавершитьПрием": "//care-event-completion//div[contains(@class,'care-event-completion__footer-block--right')]/../..//div[contains(@class,'care-event-completion__footer')][3]//sc-button[contains(@class,'basic') and normalize-space(.)='Завершить приём']"
+    },
+    "Диспансеризация": {
+        "Назначить": "//kpi-patient-information//button//span[text()=' Назначить ']",
+        "кнопкаНазначить": "//kpi-editor-component//button//span[text()=' Назначить ']"
+    },
+    "ЗаписьПациента": {
+        "кнопкаЗаписатьПациента": "//care-event-completion//sc-button[normalize-space(.)='Записать пациента']",
+        "свободныйCлот": "//kpi-schedule//div[contains(@class,'main-wrapper')]//div[contains(@class,'is-available')]",
+        "кнопкаЗаписать": "//kpi-appointment-component//kpi-assignment-list-footer//sc-preloader",
+        "кнопкаВернуться": "//care-event-completion//sc-button[normalize-space(.)='Вернуться к печати']"
     }
 }

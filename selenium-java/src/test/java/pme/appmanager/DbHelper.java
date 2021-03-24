@@ -71,4 +71,71 @@ public class DbHelper {
         stmt.execute(deleteQuery);
         con.close();
     }
+
+    public void deletePatientAppointment(String patientId) throws Exception {
+        con = createSession();
+        Statement stmt = con.createStatement();
+        String deleteQuery = "delete from patient_appointment where patient_id =" + patientId;
+        stmt.execute(deleteQuery);
+        con.close();
+    }
+
+    public void deleteMedicalExamination(String patientId) throws Exception {
+        con = createSession();
+        Statement stmt = con.createStatement();
+        String deleteQuery = "delete from medical_examination where patient_id =" + patientId;
+        stmt.execute(deleteQuery);
+        con.close();
+    }
+
+    public void checkPatientAppointment(String patientId, String type, String description) throws Exception {
+        con = createSession();
+        Statement stmt = con.createStatement();
+
+        String query = "select *  from patient_appointment where patient_id =" + patientId;
+        String queryCount = "select count (*)  from patient_appointment where patient_id =" + patientId;
+
+        ResultSet rsCount = stmt.executeQuery(queryCount);
+        while (rsCount.next()) {
+            Assert.assertEquals("count", "1", rsCount.getString(1));
+        }
+
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+            Assert.assertEquals("patientId", patientId, rs.getString(1));
+            Assert.assertNotNull("appointment_id", rs.getString(2));
+            Assert.assertNotNull("start_time", rs.getString(3));
+            Assert.assertEquals("type", type, rs.getString(4));
+            Assert.assertEquals("description", description, rs.getString(5));
+        }
+
+        con.close();
+    }
+
+    public void checkMedicalExamination(String patientId) throws Exception {
+        con = createSession();
+        Statement stmt = con.createStatement();
+
+        String query = "select *  from medical_examination where patient_id =" + patientId;
+        String queryCount = "select count (*)  from medical_examination where patient_id =" + patientId;
+
+        ResultSet rsCount = stmt.executeQuery(queryCount);
+        while (rsCount.next()) {
+            Assert.assertNotEquals("count", "0", rsCount.getString(1));
+        }
+
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+            Assert.assertNotNull("id", rs.getString(1));
+            Assert.assertNotNull("checkup_id", rs.getString(2));
+            Assert.assertNotNull("create_date", rs.getString(3));
+            Assert.assertNull("cancel_date", rs.getString(4));
+            Assert.assertNotNull("composition_id", rs.getString(5));
+            Assert.assertNotNull("document_id", rs.getString(6));
+            Assert.assertEquals("patientId", patientId, rs.getString(7));
+            Assert.assertNotNull("checkup_package_id", rs.getString(8));
+        }
+
+        con.close();
+    }
 }

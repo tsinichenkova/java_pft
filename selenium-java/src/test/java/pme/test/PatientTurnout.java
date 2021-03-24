@@ -21,7 +21,7 @@ public class PatientTurnout extends TestBase {
         app.db().checkPatientTurnout("22658737" ,"1");
 
 //        завершение приема на UI
-        app.careEvent().stopCareEvent();
+        app.careEvent().cancelCareEvent();
     }
 
     @Test
@@ -33,7 +33,7 @@ public class PatientTurnout extends TestBase {
         app.search().closeWindow();
         app.search().searchPatient("770150 3980341455");
         app.careEvent().startCareEvent();
-        app.careEvent().stopCareEvent();
+        app.careEvent().cancelCareEvent();
 
 //        проверка записи в таблицу patient_turnout
         app.db().checkPatientTurnout("22658737", "0");
