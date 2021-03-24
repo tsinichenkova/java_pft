@@ -14,9 +14,11 @@ public class CareEventHelper extends HelperBase {
         click("РаботаСПриемом.Сохранить");
     }
 
-    public void stopCareEvent(String value) {
-        sendKeys("Поиск.ПолеПоиска", value);
-        click("Поиск.КнопкаНайти");
+    public void stopCareEvent() throws Exception {
+        click("РаботаСПриемом.ОтменитьПрием");
+        click("РаботаСПриемом.ПримичнаОтмены");
+        click("РаботаСПриемом.Отмена");
+        sleep(2);
     }
 
 }

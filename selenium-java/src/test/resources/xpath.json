@@ -10,7 +10,10 @@
     },
     "РаботаСПриемом": {
         "НачатьПрием": "//kpi-patient-information//kpi-emc-controls-start//sc-button/span[text()=' Начать прием ']",
-        "ЦельПриема": "//kpi-enquiry-purpose-modal//lu-radio[1]",
-        "Сохранить": "//kpi-enquiry-purpose-modal//button//span[text()=' Сохранить ']"
+        "ЦельПриема": "//kpi-enquiry-purpose-modal//lu-radio[1]//div[contains(@class,'lu-radio-text')]",
+        "Сохранить": "//kpi-enquiry-purpose-modal//button//span[text()=' Сохранить ']",
+        "ОтменитьПрием": "//kpi-patient-information//kpi-emc-controls-finish//span[text()='Отменить']",
+        "ПримичнаОтмены": "//care-event-cancellation//sc-radio[2]//span[contains(@class,'label__inner')]",
+        "Отмена": "//care-event-cancellation//sc-button//span[text()='Отменить приём']"
     }
 }

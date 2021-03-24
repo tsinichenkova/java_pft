@@ -34,19 +34,19 @@ public class DbHelper {
         //Create Connection to DB
         con = DriverManager.getConnection(dbUrl, username, password);
 
-        //Load mysql jdbc driver
+        //Load jdbc driver
         Class.forName("org.postgresql.Driver");
 
         return con;
 
     }
 
-    public void checkPatientTurnout() throws Exception {
+    public void checkPatientTurnout(String patientId, String status) throws Exception {
         con = createSession();
         Statement stmt = con.createStatement();
 
-        String query = "select *  from patient_turnout where patient_id = 22658737";
-        String queryCount = "select count (*)  from patient_turnout where patient_id = 22658737";
+        String query = "select *  from patient_turnout where patient_id =" + patientId;
+        String queryCount = "select count (*)  from patient_turnout where patient_id =" + patientId;
 
         ResultSet rsCount = stmt.executeQuery(queryCount);
         while (rsCount.next()) {
@@ -56,14 +56,19 @@ public class DbHelper {
         ResultSet rs = stmt.executeQuery(query);
         while (rs.next()) {
             Assert.assertNotNull("careEventId", rs.getString(1));
-            Assert.assertEquals("patientId", "22658737", rs.getString(2));
+            Assert.assertEquals("patientId", patientId, rs.getString(2));
             Assert.assertNotNull("start_time", rs.getString(3));
-            Assert.assertEquals("status", "1", rs.getString(4));
+            Assert.assertEquals("status", status, rs.getString(4));
         }
 
-        String deleteQuery = "delete from patient_turnout where patient_id = 22658737";
-        stmt.execute(deleteQuery);
+        con.close();
+    }
 
+    public void deletePatientTurnout(String patientId) throws Exception {
+        con = createSession();
+        Statement stmt = con.createStatement();
+        String deleteQuery = "delete from patient_turnout where patient_id =" + patientId;
+        stmt.execute(deleteQuery);
         con.close();
     }
 }
