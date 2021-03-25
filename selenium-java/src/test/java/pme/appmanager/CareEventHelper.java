@@ -40,6 +40,15 @@ public class CareEventHelper extends HelperBase {
         sleep(2);
     }
 
+    public void stopCareEventForSign() throws Exception {
+        click("РаботаСПриемом.Завершить");
+        click("РаботаСПриемом.ЧекбоксНеТребуются");
+        click("РаботаСПриемом.СохранитьИПродолжить");
+        click("РаботаСПриемом.ЗакрытьСообщение");
+        click("РаботаСПриемом.ЗавершитьПриемПриПодписании");
+        sleep(2);
+    }
+
     public void recordPatient() throws Exception {
         click("ЗаписьПациента.кнопкаЗаписатьПациента");
         click("ЗаписьПациента.свободныйCлот");

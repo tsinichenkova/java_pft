@@ -13,4 +13,13 @@ public class DispanserizationHelper extends HelperBase {
         click("Диспансеризация.кнопкаНазначить");
         sleep(2);
     }
+
+    public void cancelExamination() throws Exception {
+        click("Диспансеризация.Диспансеризация");
+        click("Диспансеризация.ДоврачебныйПрофОсмотр");
+        click("Диспансеризация.ОтменитьНазначение");
+        click("Диспансеризация.ПричнаОтмены");
+        click("Диспансеризация.кнопкаОтменитьНазначение");
+        sleep(2);
+    }
 }

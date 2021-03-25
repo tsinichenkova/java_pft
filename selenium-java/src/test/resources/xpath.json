@@ -20,11 +20,17 @@
         "СохранитьИПродолжить": "//care-event-completion//sc-button/span[text()=' Сохранить и продолжить ']",
         "ЗакрытьСообщение": "//lu-message-container//div[contains(@class,'lu-message-close')]",
         "ПодписатьИПродолжить": "//care-event-completion//sc-button/span[text()=' Подписать и продолжить ']",
-        "ЗавершитьПрием": "//care-event-completion//div[contains(@class,'care-event-completion__footer-block--right')]/../..//div[contains(@class,'care-event-completion__footer')][3]//sc-button[contains(@class,'basic') and normalize-space(.)='Завершить приём']"
+        "ЗавершитьПрием": "//care-event-completion//div[contains(@class,'care-event-completion__footer-block--right')]/../..//div[contains(@class,'care-event-completion__footer')][3]//sc-button[contains(@class,'basic') and normalize-space(.)='Завершить приём']",
+        "ЗавершитьПриемПриПодписании": "//care-event-completion//div[contains(@class,'care-event-completion__footer')][2]//div[contains(@class,'care-event-completion__footer-block--right')]//sc-button[contains(@class,'basic') and normalize-space(.)='Завершить приём']"
     },
     "Диспансеризация": {
         "Назначить": "//kpi-patient-information//button//span[text()=' Назначить ']",
-        "кнопкаНазначить": "//kpi-editor-component//button//span[text()=' Назначить ']"
+        "кнопкаНазначить": "//kpi-editor-component//button//span[text()=' Назначить ']",
+        "Диспансеризация": "//kpi-card-toolbar//div[text()=' Диспансеризация/профосмотры ']",
+        "ДоврачебныйПрофОсмотр": "//kpi-list-wrapper//div[text()=' Доврачебный проф. осмотр ']",
+        "ОтменитьНазначение": "//kpi-consultations-detail-created//sc-button/span[text()=' Отменить назначение ']",
+        "ПричнаОтмены": "//kpi-cancel-reason//div[contains(@class,'canceled-reception__body-row')][2]/sc-radio//span[contains(@class,'label__inner')]",
+        "кнопкаОтменитьНазначение": "//kpi-cancel-reason//sc-button/span[text()=' Отменить назначение ']"
     },
     "ЗаписьПациента": {
         "кнопкаЗаписатьПациента": "//care-event-completion//sc-button[normalize-space(.)='Записать пациента']",
