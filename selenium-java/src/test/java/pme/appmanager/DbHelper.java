@@ -88,6 +88,14 @@ public class DbHelper {
         con.close();
     }
 
+    public void deleteMedicalExaminationResult(String patientId) throws Exception {
+        con = createSession();
+        Statement stmt = con.createStatement();
+        String deleteQuery = "delete from medical_examination_result where patient_id =" + patientId;
+        stmt.execute(deleteQuery);
+        con.close();
+    }
+
     public void checkPatientAppointment(String patientId, String type, String description) throws Exception {
         con = createSession();
         Statement stmt = con.createStatement();
@@ -161,6 +169,37 @@ public class DbHelper {
             Assert.assertNotNull("document_id", rs.getString(6));
             Assert.assertEquals("patientId", patientId, rs.getString(7));
             Assert.assertNotNull("checkup_package_id", rs.getString(8));
+        }
+
+        con.close();
+    }
+
+    public void checkMedicalExaminationResult(String patientId, String checkup) throws Exception {
+        con = createSession();
+        Statement stmt = con.createStatement();
+
+        String query = "select *  from medical_examination_result where patient_id =" + patientId + " and checkup_id =" + checkup;
+        String queryCount = "select count (*)  from medical_examination_result where patient_id =" + patientId + " and checkup_id =" + checkup;
+
+        ResultSet rsCount = stmt.executeQuery(queryCount);
+        while (rsCount.next()) {
+            Assert.assertEquals("count", "1", rsCount.getString(1));
+        }
+
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+            Assert.assertNotNull("id", rs.getString(1));
+            Assert.assertNull("medical_examination_id", rs.getString(2));
+            Assert.assertEquals("checkup_id", checkup, rs.getString(3));
+            Assert.assertNotNull("create_date", rs.getString(4));
+            Assert.assertNull("cancel_date", rs.getString(5));
+            Assert.assertEquals("patientId", patientId, rs.getString(6));
+            Assert.assertNotNull("composition_id", rs.getString(7));
+            Assert.assertNotNull("document_id", rs.getString(8));
+            Assert.assertNotNull("checkup_cct", rs.getString(9));
+            Assert.assertNotNull("transfer", rs.getString(10));
+            Assert.assertNull("test_id", rs.getString(11));
+            Assert.assertNull("test_name", rs.getString(12));
         }
 
         con.close();

@@ -65,6 +65,10 @@ public class ApplicationManager {
         dispanserizationHelper = new DispanserizationHelper(driver);
     }
 
+    public WebDriver driver() {
+        return driver;
+    }
+
     public void stop() {
         driver.quit();
     }

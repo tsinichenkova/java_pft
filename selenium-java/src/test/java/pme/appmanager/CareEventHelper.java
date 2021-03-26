@@ -14,6 +14,10 @@ public class CareEventHelper extends HelperBase {
         click("РаботаСПриемом.Сохранить");
     }
 
+    public void startCareEventOMP() {
+        click("РаботаСПриемом.НачатьПрием");
+    }
+
     public void cancelCareEvent() throws Exception {
         click("РаботаСПриемом.ОтменитьПрием");
         click("РаботаСПриемом.ПримичнаОтмены");
@@ -37,6 +41,14 @@ public class CareEventHelper extends HelperBase {
         click("РаботаСПриемом.ПодписатьИПродолжить");
         sleep(5);
         click("РаботаСПриемом.ЗавершитьПрием");
+        sleep(2);
+    }
+
+    public void stopCareEventForOMP() throws Exception {
+        click("РаботаСПриемом.Завершить");
+        click("РаботаСПриемом.ПодписатьИПродолжить");
+        sleep(5);
+        click("РаботаСПриемом.ЗавершитьПриемПриПодписании");
         sleep(2);
     }
 

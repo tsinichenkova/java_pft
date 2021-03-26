@@ -37,5 +37,15 @@
         "свободныйCлот": "//kpi-schedule//div[contains(@class,'main-wrapper')]//div[contains(@class,'is-available')]",
         "кнопкаЗаписать": "//kpi-appointment-component//kpi-assignment-list-footer//sc-preloader",
         "кнопкаВернуться": "//care-event-completion//sc-button[normalize-space(.)='Вернуться к печати']"
+    },
+    "Протокол": {
+        "кнопкаСоздания": "//kpi-selection-inspection-protocol//button/div/span[text()=' Протокол ']",
+        "ИМТ": "//ehr-navigation-section//ehr-navigation-hideable-section//span[contains(@class, 'label-text') and text()=' ИМТ ']//..//..//..//input",
+        "Талия": "//ehr-navigation-section//ehr-navigation-hideable-section//span[contains(@class, 'label-text') and text()=' Окружность талии ']//..//..//..//input",
+        "СистолическоеДавление": "//ehr-navigation-section//ehr-navigation-hideable-section//span[contains(@class, 'label-text') and text()=' Артериальное давление ']//..//..//..//ehr-count-field//span[text()=' Систолическое ']/..//input",
+        "ДиастолическоеДавление": "//ehr-navigation-section//ehr-navigation-hideable-section//span[contains(@class, 'label-text') and text()=' Артериальное давление ']//..//..//..//ehr-count-field//span[text()=' Диастолическое ']/..//input",
+        "Тонометрия": "//ehr-navigation-section//ehr-navigation-hideable-section//span[contains(@class, 'label-text') and text()=' ВГД ']/../../../../..//ehr-root-slot//ehr-repeater//div[contains(@class,'header__title') and text()='ВГД OD']/../..//ehr-stack-panel//ehr-radio//sc-radio[2]//span[contains(@class,'label__inner')]",
+        "Давление": "//ehr-navigation-section//ehr-navigation-hideable-section//span[contains(@class, 'label-text') and text()=' ВГД ']/../../../../..//ehr-root-slot//ehr-repeater//div[contains(@class,'header__title') and text()='ВГД OD']/../..//ehr-count-field//input",
+        "кнопкаСохранить": "//kpi-inspection-report-for-router//sc-button/span[text()='Сохранить']"
     }
 }

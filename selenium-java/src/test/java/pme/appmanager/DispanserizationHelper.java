@@ -22,4 +22,16 @@ public class DispanserizationHelper extends HelperBase {
         click("Диспансеризация.кнопкаОтменитьНазначение");
         sleep(2);
     }
+
+    public void createResult() throws Exception {
+        click("Протокол.кнопкаСоздания");
+        sendKeys("Протокол.ИМТ", "15");
+        sendKeys("Протокол.Талия", "60");
+        sendKeys("Протокол.СистолическоеДавление", "80");
+        sendKeys("Протокол.ДиастолическоеДавление", "120");
+        click("Протокол.Тонометрия");
+        sendKeys("Протокол.Давление", "75");
+        click("Протокол.кнопкаСохранить");
+        sleep(5);
+    }
 }
