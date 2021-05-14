@@ -2,6 +2,7 @@ package pme.appmanager;
 
 import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.client.ClientUtil;
+import net.lightbody.bmp.proxy.CaptureType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -63,6 +64,8 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(properties.getProperty("web.baseUrl"));
+        proxy().newHar("har");
+        proxy().enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
         searchHelper = new SearchHelper(driver);
         careEventHelper = new CareEventHelper(driver);
         dispanserizationHelper = new DispanserizationHelper(driver);
