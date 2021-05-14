@@ -27,6 +27,8 @@ public class ApplicationManager {
     public CareEventHelper careEventHelper;
     public DispanserizationHelper dispanserizationHelper;
     public HttpHelper httpHelper;
+    public BrowserMobProxy proxy;
+
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -45,7 +47,7 @@ public class ApplicationManager {
                 break;
             case BrowserType.CHROME:
                 ProxyManager proxyManager = new ProxyManager();
-                BrowserMobProxy proxy = proxyManager.setUpProxy();
+                proxy = proxyManager.setUpProxy();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("start-fullscreen");
                 options.setProxy(ClientUtil.createSeleniumProxy(proxy));
@@ -97,6 +99,10 @@ public class ApplicationManager {
 
     public HttpHelper http() {
         return httpHelper;
+    }
+
+    public BrowserMobProxy proxy() {
+        return proxy;
     }
 }
 
