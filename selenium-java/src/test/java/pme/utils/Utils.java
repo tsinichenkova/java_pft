@@ -21,4 +21,28 @@ public class Utils extends TestBase {
         FileReader json = new FileReader("har.json");
         return (JsonPath.from(json).getString("log.entries[0].response.content.text"));
     }
+
+    public static String getRequest (String name) throws FileNotFoundException {
+        Har har = app.proxy().getHar();
+        try {
+            har.getLog().getEntries().removeIf(x-> !x.getRequest().getUrl().contains(name));
+            har.writeTo(new File("har.json"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        FileReader json = new FileReader("har.json");
+        return (JsonPath.from(json).getString("log.entries[0].request.postData.text"));
+    }
+
+    public static void cancelCareEvent() {
+        try {
+            String request = Utils.getRequest("getCareEventHistory");
+            String careEventId = JsonPath.from(request).getString("careEventId");
+            app.http().cancelCareEvent(careEventId);
+            System.out.println("Завершено клиническое событие: "+careEventId);
+
+        } catch (IOException c) {
+            c.printStackTrace();
+        }
+    }
 }

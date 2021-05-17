@@ -1,8 +1,20 @@
 package pme.test;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
+import pme.utils.Utils;
 
 public class MedicalExamination extends TestBase {
+
+    @Rule
+    public TestWatcher watchman = new TestWatcher() {
+        @Override
+        protected void failed(Throwable e, Description description) {
+            Utils.cancelCareEvent();
+        }
+    };
 
     @Test
     public void checkMedicalExamination() throws Exception {

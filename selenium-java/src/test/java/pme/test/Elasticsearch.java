@@ -1,11 +1,23 @@
 package pme.test;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import pme.utils.Utils;
 
 public class Elasticsearch extends TestBase {
+
+    @Rule
+    public TestWatcher watchman = new TestWatcher() {
+        @Override
+        protected void failed(Throwable e, Description description) {
+            Utils.cancelCareEvent();
+        }
+    };
 
     @Test
     public void checkElasticsearch() throws Exception {

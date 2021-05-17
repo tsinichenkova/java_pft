@@ -1,20 +1,11 @@
 package pme.test;
 
-import io.restassured.path.json.JsonPath;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
-import pme.appmanager.RunnerExtension;
 import pme.utils.Utils;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class PatientTurnout extends TestBase {
 
@@ -22,17 +13,7 @@ public class PatientTurnout extends TestBase {
     public TestWatcher watchman = new TestWatcher() {
         @Override
         protected void failed(Throwable e, Description description) {
-            try {
-                String content = Utils.getContent("createCareEvent");
-                System.out.println(content);
-                String careEventId = JsonPath.from(content).getString("careEvent.careEventId");
-                String mejiId = JsonPath.from(content).getString("careEvent.mejiId");
-                System.out.println(careEventId);
-                app.http().cancelCareEvent(careEventId, mejiId);
-
-            } catch (IOException c) {
-                c.printStackTrace();
-            }
+            Utils.cancelCareEvent();
         }
     };
 
@@ -103,17 +84,6 @@ public class PatientTurnout extends TestBase {
 //        завершение приема на UI
         app.careEvent().cancelCareEvent();
     }
-
-//    @AfterTest
-//    public static void checkStatus(ITestResult result) throws FileNotFoundException {
-//        if (result.isSuccess()) {
-//            String content = Utils.getContent("createCareEvent");
-//            System.out.println(content);
-//            return;
-//        } else {
-//            // добавить завершение приема
-//        }
-//    }
 
 
 
