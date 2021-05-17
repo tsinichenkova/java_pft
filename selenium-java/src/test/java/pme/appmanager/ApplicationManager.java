@@ -65,7 +65,7 @@ public class ApplicationManager {
         driver.manage().window().maximize();
         driver.get(properties.getProperty("web.baseUrl"));
         proxy().newHar("har");
-        proxy().enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
+        proxy().enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT, CaptureType.REQUEST_HEADERS);
         searchHelper = new SearchHelper(driver);
         careEventHelper = new CareEventHelper(driver);
         dispanserizationHelper = new DispanserizationHelper(driver);

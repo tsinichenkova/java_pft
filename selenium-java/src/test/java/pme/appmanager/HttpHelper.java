@@ -61,7 +61,7 @@ public class HttpHelper {
         return null;
     }
 
-    public void cancelCareEvent(String careEventId) throws IOException {
+    public void cancelCareEvent(String careEventId, String mejiId) throws IOException {
 
         Properties properties = new Properties();
         String target = System.getProperty("target", "local");
@@ -76,19 +76,20 @@ public class HttpHelper {
         httppost.setHeader("Content-type", "application/json");
         httppost.setHeader("Kpi-User-Token", "IrIlina");
         httppost.setHeader("Kpi-User-Rights", "75020");
+        httppost.setHeader("Kpi-Contract-Id", mejiId);
         StringEntity params = new StringEntity("{\"cancelCode\":\"26\", \"careEventId\":\""+careEventId+"\", \"newStatus\":\"2\", \"info\": \"\"}");
         httppost.setEntity(params);
 
         //Executing the Get request
         HttpResponse httpresponse = httpclient.execute(httppost);
 
-//        Scanner sc = new Scanner(httpresponse.getEntity().getContent());
-//
-//        //Printing the status line
-//        System.out.println(httpresponse.getStatusLine());
-//        while(sc.hasNext()) {
-//            System.out.println(sc.nextLine());
-//        }
+        Scanner sc = new Scanner(httpresponse.getEntity().getContent());
+
+        //Printing the status line
+        System.out.println(httpresponse.getStatusLine());
+        while(sc.hasNext()) {
+            System.out.println(sc.nextLine());
+        }
     }
 
 }

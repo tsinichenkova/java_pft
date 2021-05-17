@@ -26,8 +26,9 @@ public class PatientTurnout extends TestBase {
                 String content = Utils.getContent("createCareEvent");
                 System.out.println(content);
                 String careEventId = JsonPath.from(content).getString("careEvent.careEventId");
+                String mejiId = JsonPath.from(content).getString("careEvent.mejiId");
                 System.out.println(careEventId);
-                app.http().cancelCareEvent(careEventId);
+                app.http().cancelCareEvent(careEventId, mejiId);
 
             } catch (IOException c) {
                 c.printStackTrace();
