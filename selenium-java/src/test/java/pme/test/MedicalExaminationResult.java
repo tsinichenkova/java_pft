@@ -24,7 +24,6 @@ public class MedicalExaminationResult extends TestBase {
 
 //        начало приема на UI, авторизация от Медсестра ОМП
         app.driver().get("http://doctor3.test.emias.mos.ru/web/etd-access-point?medicalEntityId=204&isNewLN=true&docSpecialityCode=69&medicalEmployeeJobInfoId=9406805045&roleId=7061&availableResourceId=16071283&newUI=true&complexResourceId=14341268");
-        app.search().closeWindow();
         app.search().searchPatient("7754230875000453");
         app.careEvent().startCareEventOMP();
 
