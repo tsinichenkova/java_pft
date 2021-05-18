@@ -36,6 +36,6 @@ public class PatientAppointment extends TestBase {
         app.careEvent().recordPatient();
 
 //        проверка записи в таблицу patient_appointment
-        app.db().checkPatientAppointment(patientId ,"2", "Цитологическое исследование мазка с шейки матки");
+        app.db().checkPatientAppointment(patientId ,"2", "Взятие венозной крови");
     }
 }

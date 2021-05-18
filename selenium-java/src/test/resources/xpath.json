@@ -36,7 +36,11 @@
         "кнопкаЗаписатьПациента": "//care-event-completion//sc-button[normalize-space(.)='Записать пациента']",
         "свободныйCлот": "//kpi-schedule//div[contains(@class,'main-wrapper')]//div[contains(@class,'is-available')]",
         "кнопкаЗаписать": "//kpi-appointment-component//kpi-assignment-list-footer//sc-preloader",
-        "кнопкаВернуться": "//care-event-completion//sc-button[normalize-space(.)='Вернуться к печати']"
+        "кнопкаВернуться": "//care-event-completion//sc-button[normalize-space(.)='Вернуться к печати']",
+        "кнопкаВыбораИсследования": "//care-event-completion//kpi-assignment-list//kpi-assignment-list-item[1]//sc-checkbox/span",
+        "кнопкаОткрытияМО": "//kpi-appointment-component//kpi-assignment-list-item[1]//kpi-assignment-place//sc-svg-icon[contains(@class,'doctor-select__icon-arrow')]",
+        "кнопкаВыбораМО": "//kpi-doctor-list/ul/li[1]/sc-checkbox/span",
+        "кнопкаВыбрать": "//kpi-doctor-list//sc-button"
     },
     "Протокол": {
         "кнопкаСоздания": "//kpi-selection-inspection-protocol//button/div/span[text()=' Протокол ']",
